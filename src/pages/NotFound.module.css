@@ -1,0 +1,51 @@
+.not-found-list {
+    list-style-type: none;
+    text-align: start;
+    color: #06898E;
+  }
+
+  .not-found-list a {
+    color: #06898E;
+    margin-left: -40px;
+  }
+
+  .not-found-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0px 70px;
+    align-items: center;
+    margin-top: -60px;
+    margin-left: -70px;
+    margin-bottom: 160px;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 30%;
+  }
+
+  .text-container h1 {
+    font-size: 150px;
+    margin-bottom: 15px;
+  }
+
+  .text-container h2 {
+    margin-bottom: -15px;
+    font-weight: 400;
+    font-size: 35px;
+    display: flex;
+    text-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .text-container p {
+    margin-bottom: -15px;
+  }
+
+  .image-container {
+    
+  }
+  

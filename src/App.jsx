@@ -3,25 +3,27 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import PropertiesOverview from './pages/PropertiesOverview';
 
 function App() {
   return (
+    <div>
+    <Navbar />
     <Router> 
+
       <div className="app">
-        <header className="header">
-          <img
-            className="header__logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png"
-            alt="Airbnb Logo"
-          />
-          <input type="text" placeholder="Search" className="header__searchInput" />
-        </header>
         <Routes>
           <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<PropertiesOverview />} />
+          <Route path="/optimization/:propertyId" element={<Dashboard />} />
+         
         </Routes>
-        <Footer />
       </div>
     </Router>
+    <Footer />
+    </div>
   );
 }
 

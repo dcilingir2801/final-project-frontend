@@ -1,10 +1,10 @@
 import React from 'react';
-import './Footer.css';
+import styles from './Footer.module.css';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__section">
+    <footer className={styles["footer"]}>
+      <div className={styles["footer__section"]}>
         <h3>Support</h3>
         <ul>
           <li>Help Centre</li>
@@ -15,7 +15,7 @@ function Footer() {
           <li>Report neighbourhood concern</li>
         </ul>
       </div>
-      <div className="footer__section">
+      <div className={styles["footer__section"]}>
         <h3>Hosting</h3>
         <ul>
           <li>Airbnb your home</li>
@@ -26,7 +26,7 @@ function Footer() {
           <li>Join a free Hosting class</li>
         </ul>
       </div>
-      <div className="footer__section">
+      <div className={styles["footer__section"]}>
         <h3>Airbnb</h3>
         <ul>
           <li>Newsroom</li>
@@ -37,9 +37,9 @@ function Footer() {
           <li>Airbnb.org emergency stays</li>
         </ul>
       </div>
-      <hr className="footer__hr" />
-      <div className="footer__additional">
-        <div className="footer__additional--left">
+      <hr className={styles["footer__hr"]} />
+      <div className={styles["footer__additional"]}>
+        <div className={styles["footer__additional--left"]}>
           <span>© 2024 Airbnb, Inc.</span>
           <span>Privacy</span>
           <span>Terms</span>
@@ -47,7 +47,7 @@ function Footer() {
           <span>UK Modern Slavery Act</span>
           <span>Company details</span>
         </div>
-        <div className="footer__additional--right">
+        <div className={styles["footer__additional--right"]}>
           <span>English (GB)</span>
           <span>Choose a currency</span>
           <span>£ GBP</span>

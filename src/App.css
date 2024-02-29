@@ -3,27 +3,6 @@
   font-size: 14px;
 }
 
-.header {
-  background-color: #ffffff;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
-}
-
-.header__logo {
-  height: 40px;
-  object-fit: contain;
-}
-
-.header__searchInput {
-  width: 30vw;
-  padding: 10px;
-  border: none;
-  outline-width: 0;
-}
-
 .banner {
   background-image: url('https://a0.muscache.com/im/pictures/ff20f143-4be6-4749-b44b-9d2e7ddc90f1.jpg?im_w=1440');
   background-size: cover;
