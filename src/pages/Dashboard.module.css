@@ -1,8 +1,8 @@
 .dashboard__dropdown {
     position: absolute;
-    width: 200px;
+    width: auto;
     top: 200px; 
-    left: 350px;
+    left: 80px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -15,3 +15,12 @@
     cursor: pointer;
     font-size: 14px;
   }
+
+  .dashboard__sidebar {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 80px;
+    margin-top: 10px;
+  }
+

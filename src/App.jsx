@@ -1,29 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Footer from './components/Footer';
-import NotFound from './pages/NotFound';
-import Navbar from './components/Navbar';
-import Dashboard from './pages/Dashboard';
-import PropertiesOverview from './pages/PropertiesOverview';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
+import "./App.css";
+import Footer from "./components/Footer";
+import NotFound from "./pages/NotFound";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import PropertiesOverview from "./pages/PropertiesOverview";
 
 function App() {
   return (
-    <div>
-    <Navbar />
-    <Router> 
+    <BrowserRouter>
+      <div>
+        <Navbar />
 
-      <div className="app">
-        <Routes>
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<PropertiesOverview />} />
-          <Route path="/optimization/:propertyId" element={<Dashboard />} />
-         
-        </Routes>
+        <div className="app">
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<PropertiesOverview />} />
+            <Route path="/optimization/:propertyId" element={<Dashboard />} />
+          </Routes>
+        </div>
+
+        <Footer />
       </div>
-    </Router>
-    <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
