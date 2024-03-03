@@ -1,4 +1,5 @@
 import { DonutChart, Legend } from '@tremor/react';
+import styles from "/src/components/AmenitiesPieChart.module.css";
 
 const sales = [
   {

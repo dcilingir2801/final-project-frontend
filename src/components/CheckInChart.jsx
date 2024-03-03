@@ -15,10 +15,11 @@
 // ]),
 
 import { BarChart } from '@tremor/react';
+import styles from "/src/components/CheckInChart.module.css";
 
 const chartdata = [
   {
-    date: 'Apr 23',
+    date: 'Check-in time',
     'Distance Running': 165,
     'Road Cycling': 112,
     'Open Water Swimming': 125,
@@ -26,34 +27,29 @@ const chartdata = [
     'Street Basketball': 170,
   },
   {
-    date: 'May 23',
+    date: 'Check-out time',
     'Distance Running': 153,
     'Road Cycling': 138,
     'Open Water Swimming': 165,
     'Hatha Yoga': 100,
     'Street Basketball': 110,
   },
-  {
-    date: 'Jun 23',
-    'Distance Running': 124,
-    'Road Cycling': 145,
-    'Open Water Swimming': 175,
-    'Hatha Yoga': 75,
-    'Street Basketball': 140,
-  },
 ];
 
 function CheckInChart() {
   return (
     <>
+    <div className={styles['barchart']}>
+        <h2>Check-In & Check-Out</h2>
       <BarChart
         className="h-72"
         data={chartdata}
         index="date"
         categories={['Distance Running', 'Road Cycling', 'Open Water Swimming']}
-        colors={['cyan', 'blue', 'gray-300']}
+        colors={['gray-600', 'red', 'cyan']}
         yAxisWidth={30}
       />
+      </div>
     </>
   );
 }

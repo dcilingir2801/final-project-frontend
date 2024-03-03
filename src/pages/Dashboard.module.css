@@ -1,13 +1,14 @@
 .dashboard__dropdown {
     position: absolute;
     width: auto;
-    top: 200px; 
-    left: 80px;
+    top: 209px; 
+    left: 75px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(214, 187, 187, 0.1);
     padding: 10px;
     z-index: 1;
+    cursor: pointer;
   }
   
   .dashboard__dropdown p {

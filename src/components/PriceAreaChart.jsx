@@ -34,37 +34,7 @@ const chartdata = [
     date: 'Jun 22',
     SemiAnalysis: 3129,
     'The Pragmatic Engineer': 1726,
-  },
-  {
-    date: 'Jul 22',
-    SemiAnalysis: 3490,
-    'The Pragmatic Engineer': 1982,
-  },
-  {
-    date: 'Aug 22',
-    SemiAnalysis: 2903,
-    'The Pragmatic Engineer': 2012,
-  },
-  {
-    date: 'Sep 22',
-    SemiAnalysis: 2643,
-    'The Pragmatic Engineer': 2342,
-  },
-  {
-    date: 'Oct 22',
-    SemiAnalysis: 2837,
-    'The Pragmatic Engineer': 2473,
-  },
-  {
-    date: 'Nov 22',
-    SemiAnalysis: 2954,
-    'The Pragmatic Engineer': 3848,
-  },
-  {
-    date: 'Dec 22',
-    SemiAnalysis: 3239,
-    'The Pragmatic Engineer': 3736,
-  },
+  }
 ];
 
 const valueFormatter = function (number) {
@@ -113,7 +83,7 @@ function PriceAreaChart() {
         index="date"
         yAxisWidth={65}
         categories={['SemiAnalysis', 'The Pragmatic Engineer']}
-        colors={['indigo', 'cyan']}
+        colors={['red', 'cyan']}
         valueFormatter={valueFormatter}
       />
     </div>
