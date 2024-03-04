@@ -1,6 +1,6 @@
 .header {
     background-color: #ffffff;
-    padding: 10px 15px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,7 +95,7 @@
     width: 200px;
     height: 30px;
   }
-
+  
   .header__text {
     display: flex;
     flex-direction: row;
@@ -115,3 +115,66 @@
     padding: 10px 20px;
     color: #727272;
   }
+
+  .new__button {
+    background-color: #E00B41;
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    font-size: 12px;
+    padding: 3px 5px;
+    font-weight: 700;
+  }
+
+  .new__button:hover {
+    border: 1px solid #E00B41;
+    background-color: #E00B41;
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    font-size: 12px;
+    padding: 3px 5px;
+    font-weight: 700;
+  }
+
+  .one__button {
+    background-color: #E00B41;
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    border-radius: 100%;
+  }
+
+  .one__button:hover {
+    border: 1px solid #E00B41;
+    background-color: #E00B41;
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    border-radius: 100%;
+  }
+
