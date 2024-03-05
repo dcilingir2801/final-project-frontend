@@ -1,4 +1,4 @@
-.signup__overlay {
+.signin__overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 999; 
   }  
 
-.signup__popup {
+.signin__popup {
     position: absolute;
     width: 500px;
     height: 700px;
@@ -26,7 +26,7 @@
     padding: 8px 40px;
 }
 
-.signup__form {
+.signin__form {
     display: flex;
     flex-direction: column;
 }
@@ -73,12 +73,12 @@
     top: 24px;
 }
 
-.signup__form p {
+.signin__form p {
     font-size: 13px;
     font-weight: 500;
 }
 
-.signup__form span {
+.signin__form span {
     font-size: 13px;
     font-weight: 650;
     text-decoration: underline;

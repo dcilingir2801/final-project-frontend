@@ -94,8 +94,7 @@ function PriceAreaChart() {
         <h2>{`€${totalEarnings}`}</h2>
         {property.location && <p>{property.location.neighborhood}</p>}
         <p>
-          Similar listings in your area charge XXEUR more per night and earn
-          XXEUR more per month.
+          Similar listings in your area on average earn XXEUR more per month.
         </p>
         <p>
           See below how to optimize your listing to reach a similar price/value

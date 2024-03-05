@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css";
 import logo from "/src/assets/airbnb_logo_navbar.png";
 import { Link } from "react-router-dom";
 import SignUpForm from "./SignUp";
+import AuthTabs from "./AuthTabs";
 
 function Navbar() {
   const [showMenuDropdown, setShowMenuDropdown] = useState(false);
@@ -80,7 +81,7 @@ function Navbar() {
           )}
         </div>
         {showSignUpPopup && (
-          <SignUpForm toggleSignUpPopup={toggleSignUpPopup} />
+          <AuthTabs toggleSignUpPopup={toggleSignUpPopup} />
         )}
       </header>
     </>

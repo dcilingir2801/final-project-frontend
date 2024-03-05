@@ -10,6 +10,9 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import PropertiesOverview from "./pages/PropertiesOverview";
+import LandingPage from "./pages/LandingPage";
+import SignUpForm from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
 function App() {
   return (
@@ -20,8 +23,11 @@ function App() {
         <div className="app">
           <Routes>
             <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<PropertiesOverview />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/optimization" element={<PropertiesOverview />} />
             <Route path="/optimization/:propertyId" element={<Dashboard />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUpForm />} />
           </Routes>
         </div>
 
