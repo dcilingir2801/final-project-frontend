@@ -116,6 +116,19 @@
     color: #727272;
   }
 
+  .new__button__notification {
+    background-color: #E00B41;
+    color: white;
+    position: fixed;
+    font-size: 8px;
+    padding: 1px 4px;
+    font-weight: 900;
+    border-radius: 100%;
+    border: 1px solid white;
+    top: 30px;
+    right: 498px;
+  }
+
   .new__button {
     background-color: #E00B41;
     color: white;

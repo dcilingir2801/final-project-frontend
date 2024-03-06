@@ -59,7 +59,7 @@ function Navbar() {
     setShowMenuDropdown((prev) => !prev);
     setShowUserDropdown(false);
   };
-
+  
   const toggleUserDropdown = () => {
     setShowUserDropdown((prev) => !prev);
     setShowMenuDropdown(false);
@@ -89,7 +89,7 @@ function Navbar() {
             <p>Calendar</p>
             <p>Listings</p>
             <p>Inbox</p>
-            <p onClick={toggleMenuDropdown}>Menu ▼</p>
+            <p onClick={toggleMenuDropdown}>Menu ▼ {/*<button className={styles["new__button__notification"]}>1</button>*/}</p>
           </div>
           {showMenuDropdown && (
             <div className={styles["menu__dropdown"]} ref={menuRef}>
