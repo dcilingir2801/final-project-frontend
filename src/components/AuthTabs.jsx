@@ -4,8 +4,13 @@ import SignUpForm from "./SignUp";
 
 export default function AuthTabs({ toggleSignUpPopup }) {
   const [isSignUp, setIsSignUp] = useState(true);
+
+  const handleToggle = () => {
+    setIsSignUp(!isSignUp);
+  };
+
   if (isSignUp) {
-    return <SignUpForm handleToggle={() => setIsSignUp(!isSignUp)} toggleSignUpPopup={toggleSignUpPopup} />;
+    return <SignUpForm handleToggle={handleToggle} toggleSignUpPopup={toggleSignUpPopup} />;
   }
-  return <SignIn handleToggle={() => setIsSignUp(!isSignUp)} toggleSignUpPopup={toggleSignUpPopup} />;
+  return <SignIn handleToggle={handleToggle} toggleSignUpPopup={toggleSignUpPopup} />;
 }

@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
 import styles from "/src/pages/LandingPage.module.css";
 import SignUpForm from "../components/SignUp";
-import { useState } from "react";
+import SignIn from "../components/SignIn";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function LandingPage() {
   const [showSignUpPopup, setShowSignUpPopup] = useState(false);
+  const [showSignInPopup, setShowSignInPopup] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
+
+  const toggleSignInPopup = () => {
+    setShowSignInPopup((prev) => !prev);
+    setShowSignUpPopup(false); 
+  };
 
   const toggleSignUpPopup = () => {
-    setShowSignUpPopup(!showSignUpPopup);
+    setShowSignUpPopup((prev) => !prev);
+    setShowSignInPopup(false);
   };
 
   return (
@@ -30,20 +40,22 @@ function LandingPage() {
             Introducing advanced Optimization Tools for Hosts. Understand your
             potential and claim it.{" "}
           </p>
-          <Link to="/optimization">
-            <button
-              onClick={toggleSignUpPopup}
-              className={styles["try__button"]}
-            >
+          {isLoggedIn ? (
+            <Link to="/optimization">
+              <button className={styles["try__button"]}>Try it now</button>
+            </Link>
+          ) : (
+            <button className={styles["try__button"]} onClick={toggleSignInPopup}>
               Try it now
             </button>
-          </Link>
+          )}
         </div>
         <div className={styles["landing__page__img"]}>
           <img src="/src/assets/macbook.png" alt="macbook" />
         </div>
       </div>
-      {showSignUpPopup && <SignUpForm toggleSignUpPopup={toggleSignUpPopup} />}
+      {showSignInPopup && <SignIn toggleSignUpPopup={toggleSignInPopup} handleToggle={toggleSignUpPopup}/>}
+      {showSignUpPopup && <SignUpForm toggleSignUpPopup={toggleSignUpPopup} handleToggle={toggleSignInPopup} />} 
     </div>
   );
 }

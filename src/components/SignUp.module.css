@@ -14,7 +14,7 @@
 .signup__popup {
     position: absolute;
     width: 500px;
-    height: 700px;
+    height: auto;
     top: 60px; 
     left: 50%;
     transform: translateX(-50%);
@@ -22,7 +22,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    padding: 8px 40px;
+    padding: 8px 30px;
 }
 
 .signup__form {
@@ -90,3 +90,67 @@
     font-weight: 650;
     text-decoration: underline;
 }
+
+.other__buttons {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+  }
+  
+  .other__buttons button {
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    height: 50px;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid black;
+    padding-left: 10px; 
+  }
+
+  .other__buttons button:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid black;
+    padding-left: 10px; 
+  }
+  
+  .other__buttons button:hover {
+    height: 50px;
+    margin-top: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+  }
+  
+  .other__buttons img {
+    height: 25px;
+    width: auto;
+    margin-right: 10px; 
+  }
+
+  .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0px 10px 0px;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: 1em;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: 1em;
+  }
