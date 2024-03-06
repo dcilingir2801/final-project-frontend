@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "/src/components/SignIn.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { useContext } from "react";
 
 const API_URL = "http://localhost:5005";
 
-function SignIn({ toggleSignUpPopup, handleToggle }, props) {
+function SignIn({ toggleSignUpPopup, handleToggle }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const navigate = useNavigate();
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -29,8 +28,8 @@ function SignIn({ toggleSignUpPopup, handleToggle }, props) {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-
-        navigate("/");
+        toggleSignUpPopup();
+        navigate("/optimization");
       })
       .catch((error) => {
         if (error.response) {
@@ -39,6 +38,7 @@ function SignIn({ toggleSignUpPopup, handleToggle }, props) {
         }
       });
   };
+
   return (
     <div className={styles["signin__overlay"]}>
       <div className={styles["signin__popup"]}>
@@ -68,15 +68,21 @@ function SignIn({ toggleSignUpPopup, handleToggle }, props) {
               onChange={handlePassword}
             />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-                <p>
-                Don't have an account yet?{" "}
-                <span onClick={() => handleToggle()}>Register now</span>.
-              </p>
+            <p>
+              Don't have an account yet?{" "}
+              <span onClick={handleToggle}>Register now</span>.
+            </p>
             <button className={styles["button"]} type="submit">
               Continue
             </button>
           </form>
+          <div className={styles["other__buttons"]}>
+          <div className={styles["separator"]}>or</div>
+          <button><img src="/src/assets/facebook.png" alt="Facebook Icon"/>Continue with Facebook</button>
+          <button><img src="/src/assets/google.png" alt="Google Icon" />Continue with Google</button>
+          <button><img src="/src/assets/apple.png" alt="Apple Icon" /> Continue with Apple</button>
+          <button><img src="/src/assets/email.png" alt="Email Icon" />Continue with email</button>
+          </div>
         </div>
       </div>
     </div>

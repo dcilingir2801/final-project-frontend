@@ -8,19 +8,17 @@ const API_URL = "http://localhost:5005";
 function SignUpForm({ toggleSignUpPopup, handleToggle }, props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { email, password, name };
+    const requestBody = { email, password};
 
     axios
       .post(`${API_URL}/auth/signup`, requestBody)
@@ -43,21 +41,21 @@ function SignUpForm({ toggleSignUpPopup, handleToggle }, props) {
             <span className={styles["close"]} onClick={toggleSignUpPopup}>
               X
             </span>
-            <h3>Register</h3>
+            <h3>Sign up</h3>
           </div>
           <h2>Welcome to Airbnb</h2>
           <form
             className={styles["signup__form"]}
             onSubmit={handleSignupSubmit}
           >
-            <input
+           {/* <input
               className={styles["input"]}
               type="name"
               placeholder="Name"
               required
               value={name}
               onChange={handleName}
-            />
+            /> */}
             <input
               className={styles["input"]}
               type="email"
@@ -83,6 +81,13 @@ function SignUpForm({ toggleSignUpPopup, handleToggle }, props) {
               Continue
             </button>
           </form>
+          <div className={styles["other__buttons"]}>
+          <div className={styles["separator"]}>or</div>
+          <button><img src="/src/assets/facebook.png" alt="Facebook Icon"/>Continue with Facebook</button>
+          <button><img src="/src/assets/google.png" alt="Google Icon" />Continue with Google</button>
+          <button><img src="/src/assets/apple.png" alt="Apple Icon" /> Continue with Apple</button>
+          <button><img src="/src/assets/email.png" alt="Email Icon" />Continue with email</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import styles from "./Navbar.module.css";
 import logo from "/src/assets/airbnb_logo_navbar.png";
 import { Link } from "react-router-dom";
@@ -17,6 +17,9 @@ function Navbar() {
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
   const [userObject, setUserObject] = useState(null);
 
+  const menuRef = useRef(null);
+  const userRef = useRef(null);
+
   useEffect(() => {
     if (isLoggedIn && user) {
       const storedToken = localStorage.getItem("authToken");
@@ -34,24 +37,42 @@ function Navbar() {
           });
       }
     }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [isLoggedIn, user]);
 
+  const handleClickOutside = (event) => {
+    if (
+      !menuRef.current?.contains(event.target) &&
+      !userRef.current?.contains(event.target)
+    ) {
+      setShowMenuDropdown(false);
+      setShowUserDropdown(false);
+    }
+  };
+
   const toggleMenuDropdown = () => {
-    setShowMenuDropdown(!showMenuDropdown);
+    setShowMenuDropdown((prev) => !prev);
+    setShowUserDropdown(false);
   };
 
   const toggleUserDropdown = () => {
-    setShowUserDropdown(!showUserDropdown);
+    setShowUserDropdown((prev) => !prev);
+    setShowMenuDropdown(false);
   };
 
   const toggleSignInPopup = () => {
-    setShowSignInPopup(!showSignInPopup);
-    setShowSignUpPopup(false); // Ensure sign up popup is closed
+    setShowSignInPopup((prev) => !prev);
+    setShowSignUpPopup(false); 
   };
 
   const toggleSignUpPopup = () => {
-    setShowSignUpPopup(!showSignUpPopup);
-    setShowSignInPopup(false); // Ensure sign in popup is closed
+    setShowSignUpPopup((prev) => !prev);
+    setShowSignInPopup(false);
   };
 
   return (
@@ -71,7 +92,7 @@ function Navbar() {
             <p onClick={toggleMenuDropdown}>Menu ▼</p>
           </div>
           {showMenuDropdown && (
-            <div className={styles["menu__dropdown"]}>
+            <div className={styles["menu__dropdown"]} ref={menuRef}>
               <Link to="/optimization">
                 <p>
                   Optimization &nbsp;
@@ -99,9 +120,10 @@ function Navbar() {
             alt="User"
             className={styles["header__user"]}
             onClick={toggleUserDropdown}
+            ref={userRef}
           />
           {showUserDropdown && (
-            <div className={styles["user__dropdown"]}>
+            <div className={styles["user__dropdown"]} ref={userRef}>
               {isLoggedIn ? (
                 <>
                   <p>
@@ -129,16 +151,20 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <p onClick={toggleSignUpPopup}>Sign Up</p>
-                  <p onClick={toggleSignInPopup}>Log In</p>
+                  <p onClick={toggleSignUpPopup}>Sign up</p>
+                  <p onClick={toggleSignInPopup}>Log in</p>
+                  <hr/>
+                  <p>Gift cards</p>
+                  <p>Airbnb your home</p>
+                  <p>Help centre</p>
                 </>
               )}
             </div>
           )}
         </div>
       </header>
-      {showSignInPopup && <SignIn toggleSignUpPopup={toggleSignInPopup} />}
-      {showSignUpPopup && <SignUpForm toggleSignUpPopup={toggleSignUpPopup} />}
+      {showSignInPopup && <SignIn toggleSignUpPopup={toggleSignInPopup} handleToggle={toggleSignUpPopup}/>}
+      {showSignUpPopup && <SignUpForm toggleSignUpPopup={toggleSignUpPopup} handleToggle={toggleSignInPopup} />} 
     </>
   );
 }
