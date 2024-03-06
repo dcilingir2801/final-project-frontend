@@ -1,14 +1,40 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import logo from "/src/assets/airbnb_logo_navbar.png";
 import { Link } from "react-router-dom";
+import SignIn from "./SignIn";
 import SignUpForm from "./SignUp";
-import AuthTabs from "./AuthTabs";
+import axios from "axios";
+import { AuthContext } from "../context/auth.context";
+
+const BACKEND_API = "http://localhost:5005";
 
 function Navbar() {
   const [showMenuDropdown, setShowMenuDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
+  const [showSignInPopup, setShowSignInPopup] = useState(false);
   const [showSignUpPopup, setShowSignUpPopup] = useState(false);
+  const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
+  const [userObject, setUserObject] = useState(null);
+
+  useEffect(() => {
+    if (isLoggedIn && user) {
+      const storedToken = localStorage.getItem("authToken");
+
+      if (storedToken) {
+        axios
+          .get(`${BACKEND_API}/users/${user._id}`, {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          })
+          .then((response) => {
+            setUserObject(response.data);
+          })
+          .catch((error) => {
+            console.log("Error while fetching user =>", error);
+          });
+      }
+    }
+  }, [isLoggedIn, user]);
 
   const toggleMenuDropdown = () => {
     setShowMenuDropdown(!showMenuDropdown);
@@ -18,8 +44,14 @@ function Navbar() {
     setShowUserDropdown(!showUserDropdown);
   };
 
+  const toggleSignInPopup = () => {
+    setShowSignInPopup(!showSignInPopup);
+    setShowSignUpPopup(false); // Ensure sign up popup is closed
+  };
+
   const toggleSignUpPopup = () => {
     setShowSignUpPopup(!showSignUpPopup);
+    setShowSignInPopup(false); // Ensure sign in popup is closed
   };
 
   return (
@@ -40,7 +72,12 @@ function Navbar() {
           </div>
           {showMenuDropdown && (
             <div className={styles["menu__dropdown"]}>
-              <p>Optimization  &nbsp;<button className={styles["new__button"]}>NEW</button></p>
+              <Link to="/optimization">
+                <p>
+                  Optimization &nbsp;
+                  <button className={styles["new__button"]}>NEW</button>
+                </p>
+              </Link>
               <hr />
               <p>Reservations</p>
               <p>Earnings</p>
@@ -65,25 +102,43 @@ function Navbar() {
           />
           {showUserDropdown && (
             <div className={styles["user__dropdown"]}>
-              <p><b>Profile</b></p>
-              <p onClick={toggleSignUpPopup}><b>Account</b></p>
-              <p><b>Visit the Help Centre</b></p>
-              <p><b>Get help with a safety issue</b></p>
-              <p><b>Gift cards</b></p>
-              <hr />
-              <p>Language and translation</p>
-              <p>€ EUR</p>
-              <hr />
-              <p>Refer a host</p>
-              <p>Switch to travelling</p>
-              <p>Logout</p>
+              {isLoggedIn ? (
+                <>
+                  <p>
+                    <b>Profile</b>
+                  </p>
+                  <p>
+                    <b>Account</b>
+                  </p>
+                  <p>
+                    <b>Visit the Help Centre</b>
+                  </p>
+                  <p>
+                    <b>Get help with a safety issue</b>
+                  </p>
+                  <p>
+                    <b>Gift cards</b>
+                  </p>
+                  <hr />
+                  <p>Language and translation</p>
+                  <p>€ EUR</p>
+                  <hr />
+                  <p>Refer a host</p>
+                  <p>Switch to travelling</p>
+                  <p onClick={logOutUser}>Logout</p>
+                </>
+              ) : (
+                <>
+                  <p onClick={toggleSignUpPopup}>Sign Up</p>
+                  <p onClick={toggleSignInPopup}>Log In</p>
+                </>
+              )}
             </div>
           )}
         </div>
-        {showSignUpPopup && (
-          <AuthTabs toggleSignUpPopup={toggleSignUpPopup} />
-        )}
       </header>
+      {showSignInPopup && <SignIn toggleSignUpPopup={toggleSignInPopup} />}
+      {showSignUpPopup && <SignUpForm toggleSignUpPopup={toggleSignUpPopup} />}
     </>
   );
 }

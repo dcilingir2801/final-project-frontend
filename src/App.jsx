@@ -13,8 +13,15 @@ import PropertiesOverview from "./pages/PropertiesOverview";
 import LandingPage from "./pages/LandingPage";
 import SignUpForm from "./components/SignUp";
 import SignIn from "./components/SignIn";
+import IsAnon from "./components/IsAnon";
+import IsPrivate from "./components/isPrivate";
+import { useContext } from "react";
+import { AuthContext } from "./context/auth.context";
 
 function App() {
+  const { isLoggedIn } = useContext(AuthContext);
+
+  console.log("Is logged in =>>", isLoggedIn);
   return (
     <BrowserRouter>
       <div>
@@ -24,10 +31,46 @@ function App() {
           <Routes>
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<LandingPage />} />
-            <Route path="/optimization" element={<PropertiesOverview />} />
-            <Route path="/optimization/:propertyId" element={<Dashboard />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUpForm />} />
+            {isLoggedIn ? (
+              <Route
+                path="/optimization"
+                element={
+                  <IsPrivate>
+                    {" "}
+                    <PropertiesOverview />{" "}
+                  </IsPrivate>
+                }
+              />
+            ) : (
+              <Route path="*" element={<NotFound />} />
+            )}
+            <Route
+              path="/optimization/:propertyId"
+              element={
+                <IsPrivate>
+                  {" "}
+                  <Dashboard />{" "}
+                </IsPrivate>
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <IsAnon>
+                  {" "}
+                  <SignIn />{" "}
+                </IsAnon>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <IsAnon>
+                  {" "}
+                  <SignUpForm />{" "}
+                </IsAnon>
+              }
+            />
           </Routes>
         </div>
 
