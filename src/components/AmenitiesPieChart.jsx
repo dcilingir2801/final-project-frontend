@@ -12,6 +12,7 @@ function AmenitiesPieChart() {
   const [property, setProperty] = useState({});
   const [selectedAmenities, setSelectedAmenities] = useState([]);
   const [sortedAmenities, setSortedAmenities] = useState([]);
+  const [executedCount, setExecutedCount] = useState(0);
 
   useEffect(() => {
     const fetchPropertyData = async () => {
@@ -34,7 +35,7 @@ function AmenitiesPieChart() {
 
   useEffect(() => {
     const fetchListingsData = async () => {
-      if (property?.location?.neighborhood) {
+      if (property?.location?.neighborhood && executedCount < 2) {
         try {
           const response = await axios.get(`http://localhost:5005/listings/?neighborhood=${property.location.neighborhood}`);
           const listings = response.data;
@@ -50,21 +51,23 @@ function AmenitiesPieChart() {
 
           // Take only the top 5 amenities
           const topAmenities = sortedAmenities.slice(0, 9);
-          console.log(topAmenities);
 
           setSortedAmenities(topAmenities);
 
           // Prepare the data for the chart
           const amenitiesChartData = topAmenities.map(([name, value]) => ({ name, value }));
           setAmenitiesData(amenitiesChartData);
+          
+          // Increment executed count
+          setExecutedCount(prevCount => prevCount + 1);
         } catch (error) {
           console.log(error);
         }
       }
     };
-  
+
     fetchListingsData();
-  }, [property]);
+  }, [property, executedCount]);
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;

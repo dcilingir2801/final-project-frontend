@@ -91,7 +91,7 @@ function PriceAreaChart() {
     <div className={styles["price__chart__container"]}>
       <div className={styles["price__chart_text"]}>
         <h1>Compare your earnings</h1>
-        <h2>{`€${totalEarnings}`}</h2>
+        <h2>You earned {`€${totalEarnings}`} in the past 6 months.</h2>
         {property.location && <p>{property.location.neighborhood}</p>}
         <p>
           Similar listings in your area on average earn XXEUR more per month.

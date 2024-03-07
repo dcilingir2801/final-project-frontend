@@ -47,6 +47,7 @@
     height: 15px; /* Adjust the height of the checkbox */
     border-radius: 3px;
     outline: none;
+    margin-bottom: -2px;
   }
   
   /* Style the checkbox when checked */
