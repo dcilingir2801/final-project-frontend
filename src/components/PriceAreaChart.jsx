@@ -108,7 +108,7 @@ function PriceAreaChart() {
           index="date"
           yAxisWidth={65}
           categories={["Your Earnings", "Other hosts earnings"]}
-          colors={["red", "blue"]}
+          colors={["red", "green"]}
           valueFormatter={valueFormatter}
         />
       </div>

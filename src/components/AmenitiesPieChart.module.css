@@ -1,0 +1,81 @@
+.amenities__container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+}
+
+.chart__container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.chart {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox__container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox__container li {
+    list-style-type: none;
+    width: 200px;
+}
+
+.checkbox:first-of-type {
+    display: flex;
+    flex-direction: row;
+    margin-left: -40px;
+}
+
+.checkbox p {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.checkbox input[type="checkbox"] {
+    /* Hide the default checkbox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc; /* Border color */
+    width: 15px; /* Adjust the width of the checkbox */
+    height: 15px; /* Adjust the height of the checkbox */
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  /* Style the checkbox when checked */
+  .checkbox input[type="checkbox"]:checked {
+    background-color: #E00B41; /* Background color when checked */
+    border-color: #E00B41; /* Border color when checked */
+  }
+  
+  /* Style the checkmark inside the checkbox */
+  .checkbox input[type="checkbox"]:checked::after {
+    content: '\2713'; /* Unicode checkmark symbol */
+    font-size: 12px; /* Adjust the size of the checkmark */
+    color: #fff; /* Color of the checkmark */
+    position: relative;
+    left: 2px; /* Adjust the position of the checkmark */
+    bottom: 1px;
+  }
+
+  .edit__listing__button {
+    background-color: #E00B41;
+    color: white;
+    width: 150px;
+    border: #E00B41;
+
+    margin-top: 10px;
+  }
+
+  .checkbox__text {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }

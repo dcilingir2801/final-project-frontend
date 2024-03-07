@@ -46,7 +46,7 @@ function Dashboard() {
   return (
     <div className={styles["dashboard__sidebar"]}>
       <h2>{listing.title}</h2>
-      <h3 onClick={toggleDropdown}>Change listing</h3>
+      <h3 onClick={toggleDropdown}>Change listing ▼</h3>
       {showDropdown && (
         <div className={styles["dashboard__dropdown"]}>
           {properties.map((property) => (
@@ -58,9 +58,9 @@ function Dashboard() {
       )}
       <div className={styles["dashboard__graph__container"]}>
         <PriceAreaChart />
-        <h1>See where you can improve</h1>
+        <h1 className={styles["improve__text"]}>See where you can improve</h1>
         <AmenitiesPieChart />
-        <CheckInChart />
+        {/*<CheckInChart />*/}
       </div>
     </div>
   );

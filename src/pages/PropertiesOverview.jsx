@@ -33,7 +33,7 @@ function PropertiesOverview() {
                         <p>Price per night: {property.price_per_night}EUR</p>
                         <p>Location: {property.location.city}, {property.location.neighborhood}</p>
                         <Link to={`/property/${property._id}`}><button>View Details</button></Link>
-                        <Link to={`/optimization/${property._id}`}><button>Optimize your listing</button></Link>
+                        <Link to={`/optimization/${property._id}`}><button className={styles["notification"]}>Optimize your listing<span className={styles["badge"]}>NEW</span></button></Link>
                     </div>
                 </div>
             ))}

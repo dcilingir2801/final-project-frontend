@@ -1,11 +1,9 @@
 .price__chart__container {
     display: flex;
     margin-right: 60px;
+    justify-content: space-between;
 }
 
-.price__chart_text {
-
-}
 
 .price__chart_graph {
     width: 60%;

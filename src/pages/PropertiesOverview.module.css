@@ -58,3 +58,30 @@
     background: white;
     border: 1px solid black;
 }
+
+.notification {
+    color: black;
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+    background: white;
+    border: 1px solid black;
+  }
+  
+  .notification:hover {
+    background: #E00B41;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    border-radius: 7px;
+    background: #E00B41;
+    color: white;
+    font-size: 12px;
+    padding: 3px 5px;
+    font-weight: 700;
+    cursor: default;
+  }
