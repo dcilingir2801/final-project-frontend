@@ -130,7 +130,7 @@ function AmenitiesPieChart() {
               {selectedAmenities.length > 3 && (
                 <React.Fragment>, and {selectedAmenities.slice(3).map(amenity => <b key={amenity}>{amenity}</b>).reduce((prev, curr) => [prev, ', ', curr])}</React.Fragment>
               )}{' '}
-              as amenities in your Airbnb home. Have you made sure that all amenities you offer are being displayed in your listing? Also, consider investing in amenities your fellow hosts are offering.
+              as amenities in your Airbnb home. Have you made sure that all amenities you offer are being displayed in your listing? <br/><br/>Also, consider investing in amenities your fellow hosts are offering.
             </p>
             <button className={styles['edit__listing__button']}>Edit your listing</button>
           </div>

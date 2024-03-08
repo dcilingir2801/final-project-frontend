@@ -46,6 +46,7 @@ function Dashboard() {
   return (
     <div className={styles["dashboard__sidebar"]}>
       <h2>{listing.title}</h2>
+      {/*<img src={listing.image} />*/}
       <h3 onClick={toggleDropdown}>Change listing ▼</h3>
       {showDropdown && (
         <div className={styles["dashboard__dropdown"]}>
