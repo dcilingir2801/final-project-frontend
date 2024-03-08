@@ -40,7 +40,7 @@ function PriceAreaChart() {
   useEffect(() => {
     const fetchListingsData = () => {
       if (property?.location?.neighborhood) {
-        const LISTINGS_URL = `http://localhost:5005/listings/?neighborhood=${property?.location?.neighborhood}`;
+        const LISTINGS_URL = `http://localhost:5005/listing/?neighborhood=${property?.location?.neighborhood}`;
         axios.get(LISTINGS_URL)
           .then(response => {
             const earningsByMonth = {};

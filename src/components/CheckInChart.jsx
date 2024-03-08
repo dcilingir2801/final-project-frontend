@@ -20,19 +20,19 @@ import styles from "/src/components/CheckInChart.module.css";
 const chartdata = [
   {
     date: 'Check-in time',
-    'Distance Running': 165,
-    'Road Cycling': 112,
-    'Open Water Swimming': 125,
-    'Hatha Yoga': 105,
-    'Street Basketball': 170,
+    '13PM': 3,
+    '14PM': 5,
+    '15PM': 6,
+    '16PM': 1,
+    '17PM': 1,
   },
   {
     date: 'Check-out time',
-    'Distance Running': 153,
-    'Road Cycling': 138,
-    'Open Water Swimming': 165,
-    'Hatha Yoga': 100,
-    'Street Basketball': 110,
+    '13PM': 8,
+    '14PM': 7,
+    '15PM': 4,
+    '16PM': 1,
+    '17PM': 0,
   },
 ];
 
@@ -45,8 +45,8 @@ function CheckInChart() {
         className="h-72"
         data={chartdata}
         index="date"
-        categories={['Distance Running', 'Road Cycling', 'Open Water Swimming']}
-        colors={['gray-600', 'red', 'cyan']}
+        categories={['13PM', '14PM', '15PM', '16PM', '17PM']}
+        colors={['red-700', 'red-500', 'red-200', 'red-300', 'red-600']}
         yAxisWidth={30}
       />
       </div>

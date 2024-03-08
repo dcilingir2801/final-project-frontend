@@ -37,7 +37,7 @@ function AmenitiesPieChart() {
     const fetchListingsData = async () => {
       if (property?.location?.neighborhood && executedCount < 2) {
         try {
-          const response = await axios.get(`http://localhost:5005/listings/?neighborhood=${property.location.neighborhood}`);
+          const response = await axios.get(`http://localhost:5005/listing/?neighborhood=${property.location.neighborhood}`);
           const listings = response.data;
           const frequencyMap = {};
           listings.forEach(listing => {
