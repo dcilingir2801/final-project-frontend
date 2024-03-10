@@ -20,7 +20,6 @@ function AmenitiesPieChart() {
         const response = await axios.get(`http://localhost:5005/properties/${propertyId}`);
         setProperty(response.data);
 
-        // If property data is fetched, check if listed amenities exist in property amenities
         const propertyAmenities = response.data.amenities || [];
         const checkedAmenities = sortedAmenities.filter(([name]) => propertyAmenities.includes(name));
         const checkedAmenityNames = checkedAmenities.map(([name]) => name);
@@ -46,19 +45,15 @@ function AmenitiesPieChart() {
             });
           });
 
-          // Sort the frequency map by value (count) in descending order
           const sortedAmenities = Object.entries(frequencyMap).sort((a, b) => b[1] - a[1]);
 
-          // Take only the top 5 amenities
           const topAmenities = sortedAmenities.slice(0, 9);
 
           setSortedAmenities(topAmenities);
 
-          // Prepare the data for the chart
           const amenitiesChartData = topAmenities.map(([name, value]) => ({ name, value }));
           setAmenitiesData(amenitiesChartData);
           
-          // Increment executed count
           setExecutedCount(prevCount => prevCount + 1);
         } catch (error) {
           console.log(error);

@@ -92,13 +92,12 @@ function PriceAreaChart() {
       <div className={styles["price__chart_text"]}>
         <h1>Compare your earnings</h1>
         <h2>You earned {`€${totalEarnings}`} in the past 6 months.</h2>
-        {property.location && <p>{property.location.neighborhood}</p>}
+        {property.location && <p>{property.location.city}, {property.location.neighborhood}</p>}
         <p>
-          Similar listings in your area on average earn XXEUR more per month.
+          Similar listings in your area earn <b>356€ more</b> on average per month.
         </p>
         <p>
-          See below how to optimize your listing to reach a similar price/value
-          offering.
+        Explore various options to enhance your listing's appeal, such as adding amenities or adjusting prices, to maximize your occupancy and earnings.
         </p>
       </div>
       <div className={styles["price__chart_graph"]}>

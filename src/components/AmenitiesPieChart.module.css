@@ -38,31 +38,28 @@
 }
 
 .checkbox input[type="checkbox"] {
-    /* Hide the default checkbox */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: 1px solid #ccc; /* Border color */
-    width: 15px; /* Adjust the width of the checkbox */
-    height: 15px; /* Adjust the height of the checkbox */
+    border: 1px solid #ccc;
+    width: 15px;
+    height: 15px; 
     border-radius: 3px;
     outline: none;
     margin-bottom: -2px;
   }
   
-  /* Style the checkbox when checked */
   .checkbox input[type="checkbox"]:checked {
-    background-color: #E00B41; /* Background color when checked */
-    border-color: #E00B41; /* Border color when checked */
+    background-color: #E00B41; 
+    border-color: #E00B41; 
   }
   
-  /* Style the checkmark inside the checkbox */
   .checkbox input[type="checkbox"]:checked::after {
-    content: '\2713'; /* Unicode checkmark symbol */
-    font-size: 12px; /* Adjust the size of the checkmark */
-    color: #fff; /* Color of the checkmark */
+    content: '\2713';
+    font-size: 12px;
+    color: #fff;
     position: relative;
-    left: 2px; /* Adjust the position of the checkmark */
+    left: 2px; 
     bottom: 1px;
   }
 

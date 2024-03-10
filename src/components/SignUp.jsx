@@ -48,14 +48,6 @@ function SignUpForm({ toggleSignUpPopup, handleToggle }, props) {
             className={styles["signup__form"]}
             onSubmit={handleSignupSubmit}
           >
-           {/* <input
-              className={styles["input"]}
-              type="name"
-              placeholder="Name"
-              required
-              value={name}
-              onChange={handleName}
-            /> */}
             <input
               className={styles["input"]}
               type="email"

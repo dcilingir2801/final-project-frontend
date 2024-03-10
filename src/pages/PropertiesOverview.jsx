@@ -26,6 +26,7 @@ function PropertiesOverview() {
                 <div key={property.id} className={styles["property-card"]}>
                     <div className={styles["image-container"]}>
                         <img src={property.image} alt={property.title} />
+                        <span>Listed</span>
                     </div>
                     <div className={styles["property-details"]}>
                         <h3>{property.title}</h3>

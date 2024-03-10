@@ -12,12 +12,25 @@
     border: 1px solid #E4E4E4;
     border-radius: 15px;
     width: 950px;
+    position:inherit;
 }
 
 .image-container {
+    position: relative; 
     width: 50%;
     height: auto;
     overflow: hidden;
+    font-weight: 700;
+}
+
+.image-container span {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    z-index: 20;
+    background-color: #f0f0f0; 
+    border-radius: 50px; 
+    padding: 9px 15px 9px 25px;
 }
 
 .image-container img {
@@ -26,6 +39,18 @@
     object-fit: cover;
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
+}
+
+.image-container span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #0BDA51; 
+    border-radius: 50%; 
 }
 
 .property-details {

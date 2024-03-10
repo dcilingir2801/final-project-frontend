@@ -48,18 +48,12 @@ function AuthProviderWrapper(props) {
     removeToken();
     window.location.reload();
 
-    // Redirect the user to the main page ("/")
     window.location.href = "/";
   };
 
   useEffect(() => {
     authenticateUser();
   }, []);
-
-  /* 
-    Functions for handling the authentication status (isLoggedIn, isLoading, user)
-    will be added here later in the next step
-  */
 
   return (
     <AuthContext.Provider

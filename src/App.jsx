@@ -14,7 +14,7 @@ import LandingPage from "./pages/LandingPage";
 import SignUpForm from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import IsAnon from "./components/IsAnon";
-import IsPrivate from "./components/isPrivate";
+import IsPrivate from "./components/IsPrivate";
 import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
 
