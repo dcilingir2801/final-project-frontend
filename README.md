@@ -29,6 +29,7 @@ The frontend of this project is built using React.js, a popular JavaScript libra
 
 <u><h4>Components</h4></u>
 - **AmenitiesPieChart**: This component displays a donut chart representing the distribution of amenities among similar listings in the user's area. It allows users to select amenities to consider investing in based on the data.
+- **OccupancyAreaChart**: This component visualizes occupancy rates over time, allowing users to compare their rates with other hosts and providing insights into property performance.
 - **AuthTabs**: This component is responsible for rendering either a sign-up form or a sign-in form based on the current state. It is used for user authentication purposes.
 - **Footer**: The footer component contains various sections such as support, hosting, and information about Airbnb. It provides links to different sections of the Airbnb website.
 - **IsAnon**: This component is a route guard that ensures that the children components are only rendered if the user is not logged in. If the user is logged in, it redirects them to the home page.
@@ -112,6 +113,8 @@ Development Dependencies: <br>
     - IsPrivate.jsx
     - Navbar.jsx
     - Navbar.module.css
+    - OccupancyAreaChart.jsx
+    - OccupancyAreaChart.module.css
     - PriceAreaChart.jsx
     - PriceAreaChart.module.css
     - SignIn.jsx

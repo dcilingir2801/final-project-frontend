@@ -9,83 +9,38 @@ const valueFormatter = function (number) {
 };
 
 function OccupancyAreaChart() {
-    const [property, setProperty] = useState({});
-    const [totalEarnings, setTotalEarnings] = useState(0);
-    const { propertyId } = useParams();
-    const [combinedEarningsData, setCombinedEarningsData] = useState([]);
-  
-    useEffect(() => {
-      const fetchPropertyData = () => {
-        const PROPERTY_URL = `http://localhost:5005/properties/${propertyId}`;
-        axios.get(PROPERTY_URL)
-          .then(response => {
-            setProperty(response.data);
-            const earnings = response.data.earnings;
-            const total = Object.values(earnings).reduce((acc, value) => acc + value, 0);
-            setTotalEarnings(total);
-            const earningsData = Object.entries(earnings).map(([date, earnings]) => ({
-              date,
-              "Your occupancy rate": earnings,
-            }));
-            setCombinedEarningsData(earningsData);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      };
-  
-      fetchPropertyData();
-    }, [propertyId]);
-  
-    useEffect(() => {
-      const fetchListingsData = () => {
-        if (property?.location?.neighborhood) {
-          const LISTINGS_URL = `http://localhost:5005/listing/?neighborhood=${property?.location?.neighborhood}`;
-          axios.get(LISTINGS_URL)
-            .then(response => {
-              const earningsByMonth = {};
-              const countByMonth = {};
-              response.data.forEach(listing => {
-                Object.entries(listing.earnings).forEach(([month, earnings]) => {
-                  earningsByMonth[month] = (earningsByMonth[month] || 0) + earnings;
-                  countByMonth[month] = (countByMonth[month] || 0) + 1;
-                });
-              });
-              const otherHostsEarningsData = Object.entries(earningsByMonth).map(([month, earnings]) => ({
-                date: month,
-                "Other host's occupancy rate": earnings / countByMonth[month],
-              }));
-              const mergedData = mergeEarningsData(combinedEarningsData, otherHostsEarningsData);
-              setCombinedEarningsData(mergedData);
-            })
-            .catch(error => {
-              console.log(error);
-            });
+    const chartdata = [
+        {
+          date: 'September 2023',
+          "Your occupancy rate": 40,
+          "Other host's occupancy rate": 63,
+        },
+        {
+          date: 'October 2023',
+          "Your occupancy rate": 55,
+          "Other host's occupancy rate": 79,
+        },
+        {
+          date: 'November 2023',
+          "Your occupancy rate": 66,
+          "Other host's occupancy rate": 61,
+        },
+        {
+          date: 'December 2023',
+          "Your occupancy rate": 60,
+          "Other host's occupancy rate": 87,
+        },
+        {
+          date: 'January 2024',
+          "Your occupancy rate": 30,
+          "Other host's occupancy rate": 66,
+        },
+        {
+          date: 'February 2024',
+          "Your occupancy rate": 47,
+          "Other host's occupancy rate": 67,
         }
-      };
-  
-      fetchListingsData();
-    }, [property]);
-  
-    const mergeEarningsData = (data1, data2) => {
-      const combinedDataMap = {};
-  
-      data1.forEach(item => {
-        combinedDataMap[item.date] = { date: item.date, "Your occupancy rate": item["Your occupancy rate"] || 0 };
-      });
-  
-      data2.forEach(item => {
-        const existingItem = combinedDataMap[item.date];
-        if (existingItem) {
-          existingItem["Other host's occupancy rate"] = item["Other host's occupancy rate"] || 0;
-        } else {
-          combinedDataMap[item.date] = { date: item.date, "Other host's occupancy rate": item["Other host's occupancy rate"] || 0 };
-        }
-      });
-  
-      const combinedData = Object.values(combinedDataMap);
-      return combinedData;
-    };
+      ];
 
   return (
     <div className={styles["price__chart__container"]}>
@@ -93,7 +48,7 @@ function OccupancyAreaChart() {
       <h2>Occupancy Rate</h2>
         <AreaChart
           className="mt-4 h-72"
-          data={combinedEarningsData}
+          data={chartdata}
           index="date"
           yAxisWidth={65}
           categories={["Your occupancy rate", "Other host's occupancy rate"]}
