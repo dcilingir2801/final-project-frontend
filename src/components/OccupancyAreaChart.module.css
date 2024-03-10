@@ -1,0 +1,24 @@
+.price__chart__container {
+    display: flex;
+    margin-right: 60px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.price__chart_graph {
+    width: 45%;
+    height: 30%;
+}
+
+.price__chart__text {
+    width: 50%;
+    margin-left: 110px;
+}
+
+.edit__listing__button {
+    background-color: #E00B41;
+    color: white;
+    width: 200px;
+    border: #E00B41;
+    margin-top: 10px;
+  }

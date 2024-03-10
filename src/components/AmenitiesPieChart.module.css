@@ -37,6 +37,10 @@
     margin-top: 20px;
 }
 
+.checkbox__container h3 {
+  margin-left: -10px;
+}
+
 .checkbox input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -76,4 +80,5 @@
     display: flex;
     flex-direction: column;
     width: 70%;
+
   }

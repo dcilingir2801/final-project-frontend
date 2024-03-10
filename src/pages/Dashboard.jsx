@@ -5,6 +5,7 @@ import styles from "/src/pages/Dashboard.module.css";
 import PriceAreaChart from "/src/components/PriceAreaChart";
 import AmenitiesPieChart from "/src/components/AmenitiesPieChart";
 import CheckInChart from "../components/CheckInChart";
+import OccupancyChart from "../components/OccupancyAreaChart";
 
 function Dashboard() {
   const [listing, setListing] = useState({});
@@ -62,6 +63,8 @@ function Dashboard() {
         <h1 className={styles["improve__text"]}>See where you can improve</h1>
         <AmenitiesPieChart />
         {/*<CheckInChart />*/}
+        <hr/>
+        <OccupancyChart />
       </div>
     </div>
   );

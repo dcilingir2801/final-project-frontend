@@ -25,7 +25,7 @@ function PriceAreaChart() {
           setTotalEarnings(total);
           const earningsData = Object.entries(earnings).map(([date, earnings]) => ({
             date,
-            "Your Earnings": earnings,
+            "Your earnings": earnings,
           }));
           setCombinedEarningsData(earningsData);
         })
@@ -71,7 +71,7 @@ function PriceAreaChart() {
     const combinedDataMap = {};
 
     data1.forEach(item => {
-      combinedDataMap[item.date] = { date: item.date, "Your Earnings": item["Your Earnings"] || 0 };
+      combinedDataMap[item.date] = { date: item.date, "Your earnings": item["Your earnings"] || 0 };
     });
 
     data2.forEach(item => {
@@ -106,7 +106,7 @@ function PriceAreaChart() {
           data={combinedEarningsData}
           index="date"
           yAxisWidth={65}
-          categories={["Your Earnings", "Other hosts earnings"]}
+          categories={["Your earnings", "Other hosts earnings"]}
           colors={["red", "green"]}
           valueFormatter={valueFormatter}
         />
