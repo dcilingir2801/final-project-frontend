@@ -190,4 +190,10 @@
     justify-items: center;
     border-radius: 100%;
   }
+  
+  hr {
+    width: 100%;
+    border-style: solid;
+    border-color: #E4E4E4;
+  }
 

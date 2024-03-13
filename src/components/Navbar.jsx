@@ -151,8 +151,8 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <p onClick={toggleSignUpPopup}>Sign up</p>
-                  <p onClick={toggleSignInPopup}>Log in</p>
+                  <p onClick={toggleSignUpPopup}><b>Sign up</b></p>
+                  <p onClick={toggleSignInPopup}><b>Log in</b></p>
                   <hr/>
                   <p>Gift cards</p>
                   <p>Airbnb your home</p>

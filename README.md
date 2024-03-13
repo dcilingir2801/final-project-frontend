@@ -150,7 +150,7 @@ Development Dependencies: <br>
 ## Extra Links
 
 <h3>Presentation Slides</h3>
-<a href="#">Click here</a>
+<a href="https://docs.google.com/presentation/d/1Ha3CSFtR3rAzwQI0zqWrDqaEU3A6yFDU2WUH_lkwdyQ/edit?usp=sharing">Click here</a>
 
 <h3>Deploy</h3>
 *not deployed yet*
