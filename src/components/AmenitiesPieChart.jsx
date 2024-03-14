@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { DonutChart, Legend } from '@tremor/react';
 import styles from "/src/components/AmenitiesPieChart.module.css";
+import ListingDetails from "./ListingDetails";
 
 const valueFormatter = number => `${Intl.NumberFormat('eu').format(number).toString()}`;
 
@@ -13,6 +14,7 @@ function AmenitiesPieChart() {
   const [selectedAmenities, setSelectedAmenities] = useState([]);
   const [sortedAmenities, setSortedAmenities] = useState([]);
   const [executedCount, setExecutedCount] = useState(0);
+  const [showListingDetailsPopup, setShowListingDetailsPopup] = useState(false);
 
   useEffect(() => {
     const fetchPropertyData = async () => {
@@ -73,6 +75,10 @@ function AmenitiesPieChart() {
     }
   };
 
+  const toggleListingDetailsPopup = () => {
+    setShowListingDetailsPopup((prev) => !prev);
+  };
+
   return (
     <div className={styles['amenities__container']}>
       <div className={styles["chart__container"]}>
@@ -127,10 +133,11 @@ function AmenitiesPieChart() {
               )}{' '}
               as amenities in your Airbnb home. Have you made sure that all amenities you offer are being displayed in your listing? <br/><br/>Also, consider investing in amenities your fellow hosts are offering.
             </p>
-            <button className={styles['edit__listing__button']}>Edit your listing</button>
+            <button onClick={toggleListingDetailsPopup} className={styles['edit__listing__button']}>Edit your listing</button>
           </div>
         </div>
       </div>
+      {showListingDetailsPopup && <ListingDetails toggleListingDetailsPopup={toggleListingDetailsPopup} handleCheckboxChange={handleCheckboxChange} selectedAmenities={selectedAmenities} amenitiesData={amenitiesData} sortedAmenities={sortedAmenities} executedCount={executedCount}/>}
     </div>
   );
 }

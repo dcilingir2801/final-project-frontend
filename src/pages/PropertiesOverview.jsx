@@ -25,7 +25,7 @@ function PropertiesOverview() {
             {properties.map((property) => (
                 <div key={property.id} className={styles["property-card"]}>
                     <div className={styles["image-container"]}>
-                        <img src={property.image} alt={property.title} />
+                        <img src={property.image_bedroom} alt={property.title} />
                         <span>Listed</span>
                     </div>
                     <div className={styles["property-details"]}>

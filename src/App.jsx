@@ -17,6 +17,7 @@ import IsAnon from "./components/IsAnon";
 import IsPrivate from "./components/IsPrivate";
 import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
+import ListingDetails from "./components/ListingDetails";
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -50,6 +51,15 @@ function App() {
                 <IsPrivate>
                   {" "}
                   <Dashboard />{" "}
+                </IsPrivate>
+              }
+            />
+                     <Route
+              path="/listings/:propertyId"
+              element={
+                <IsPrivate>
+                  {" "}
+                  < ListingDetails/>{" "}
                 </IsPrivate>
               }
             />
